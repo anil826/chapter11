@@ -425,3 +425,72 @@ UserMailer#password_reset: processed outbound mail in 340.9ms
   [1m[35m (109.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141202124358')
   [1m[36m (100.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141129092404')[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (116.6ms)[0m  [1mCREATE TABLE "microposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "created_at" datetime, "updated_at" datetime, "picture" varchar(255)) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (116.1ms)[0m  [1mCREATE  INDEX "index_microposts_on_user_id" ON "microposts" ("user_id")[0m
+  [1m[35m (131.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "password_digest" varchar(255), "remember_digest" varchar(255), "admin" boolean, "activation_digest" varchar(255), "activated" boolean, "activated_at" datetime, "reset_digest" varchar(255), "reset_sent_at" datetime) 
+  [1m[36m (100.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (99.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (143.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141204053322')
+  [1m[36m (122.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141127101441')[0m
+  [1m[35m (122.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141129092404')
+  [1m[36m (111.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141125095209')[0m
+  [1m[35m (111.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141128093242')
+  [1m[36m (100.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141202124358')[0m
+  [1m[35m (100.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141125043812')
+  [1m[36m (100.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141126090723')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "microposts"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2014-12-04 06:54:50', '2014-12-04 06:54:50', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', NULL, '2014-12-04 06:54:50', '2014-12-04 06:54:50', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35m (104.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+SampleControllerTest: test_should_get_about
+-------------------------------------------
+Processing by SampleController#about as HTML
+  Rendered sample/about.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (8.5ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 3980ms (Views: 3979.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+SampleControllerTest: test_should_get_home
+------------------------------------------
+Processing by SampleController#home as HTML
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 34ms (Views: 33.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------
+UserEditTest: test_unsuccessful_edit
+------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Processing by SessionsController#new as HTML
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 359ms (Views: 358.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+UserMailerTest: test_account_activation
+---------------------------------------
+
+UserMailer#account_activation: processed outbound mail in 0.2ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------
+UserMailerTest: test_password_reset
+-----------------------------------
+
+UserMailer#password_reset: processed outbound mail in 0.1ms
+  [1m[35m (0.1ms)[0m  rollback transaction
